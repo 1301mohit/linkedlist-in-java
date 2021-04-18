@@ -38,4 +38,8 @@ public class LinkedList<K> {
         return head;
     }
 
+    public Node<K> addAtLastPosition(Node<K> node) {
+        return create(node);
+    }
+
 }
