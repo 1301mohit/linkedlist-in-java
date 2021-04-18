@@ -69,4 +69,18 @@ public class LinkedList<K> {
         }
         return head;
     }
+
+    public Node<K> removeAtLastPosition() {
+        if(head == null && tail == null)
+            System.out.println("List is empty");
+        else {
+            Node<K> temp = head;
+            while(temp.getNext().getNext() != null) {
+                temp = temp.getNext();
+            }
+            temp.setNext(null);
+            tail = temp;
+        }
+        return head;
+    }
 }

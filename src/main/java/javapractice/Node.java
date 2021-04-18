@@ -26,4 +26,10 @@ public class Node<K> {
         this.next = next;
     }
 
+    @Override
+    public String toString() {
+        return "Node{" +
+                "value=" + value +
+                '}';
+    }
 }
