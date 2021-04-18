@@ -100,4 +100,14 @@ public class LinkedListTest {
         Assertions.assertEquals(node1.getNext().getNext().getNext().getNext(), resultNode.getNext().getNext().getNext().getNext());
     }
 
+    @Test
+    void givenNumbers_WhenRemoveAtFirst_ShouldReturnLinkedListNode() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        Node<Integer> resultNode = linkedlist.removeAtFirstPosition();
+        linkedlist.display();
+        node2.setNext(node3);
+        Assertions.assertEquals(node2.getNext(), resultNode.getNext());
+    }
 }
