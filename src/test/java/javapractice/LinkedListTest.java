@@ -153,4 +153,18 @@ public class LinkedListTest {
         Assertions.assertEquals(1, position);
     }
 
+    @Test
+    void givenNumber_WhenInsertAfterFixedNode_ShouldReturnNode() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.display();
+        Node<Integer> resultNode = linkedlist.insertAfterFixedNode(node2, node4);
+        linkedlist.display();
+        node1.setNext(node2);
+        node2.setNext(node4);
+        node4.setNext(node3);
+        Assertions.assertEquals(node1.getNext().getNext().getNext(), resultNode.getNext().getNext().getNext());
+    }
+    
 }

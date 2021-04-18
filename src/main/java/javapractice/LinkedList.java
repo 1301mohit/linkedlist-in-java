@@ -105,4 +105,17 @@ public class LinkedList<K> {
         return 0;
     }
 
+    public Node<K> insertAfterFixedNode(Node<K> node, Node<K> newNode) {
+        if(head == null && tail == null)
+            System.out.println("List is empty");
+        else {
+            Node<K> temp = head;
+            while(temp != node) {
+                temp = temp.getNext();
+            }
+            newNode.setNext(temp.getNext());
+            temp.setNext(newNode);
+        }
+        return head;
+    }
 }
