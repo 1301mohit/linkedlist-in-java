@@ -18,12 +18,24 @@ public class LinkedList<K> {
     }
 
     public void display() {
+        if(head == null && tail == null)
+            System.out.println("Linked list is empty");
         Node<K> temp = head;
         while(temp.getNext() != null) {
             System.out.print(temp.getValue()+" -> ");
             temp = temp.getNext();
         }
         System.out.println(temp.getValue());
+    }
+
+    public Node<K> addAtFirstPosition(Node<K> node) {
+        if(head == null && tail == null)
+            head = node;
+        else {
+            node.setNext(head);
+            head = node;
+        }
+        return head;
     }
 
 }
