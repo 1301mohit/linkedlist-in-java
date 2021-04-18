@@ -15,12 +15,12 @@ public class LinkedListTest {
 
     @BeforeEach
     void setUp() {
-        node1 = new Node<Integer>(56);
-        node2 = new Node<Integer>(30);
-        node3 = new Node<Integer>(70);
-        node4 = new Node<Integer>(80);
-        node5 = new Node<Integer>(90);
-        linkedlist = new LinkedList<Integer>();
+        node1 = new Node<>(56);
+        node2 = new Node<>(30);
+        node3 = new Node<>(70);
+        node4 = new Node<>(80);
+        node5 = new Node<>(90);
+        linkedlist = new LinkedList<>();
     }
 
     @Test
@@ -122,4 +122,35 @@ public class LinkedListTest {
         node1.setNext(node2);
         Assertions.assertEquals(node1.getNext(), resultNode.getNext());
     }
+
+    @Test
+    void givenNumbers_WhenSearch_ShouldReturnPosition() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.display();
+        int position = linkedlist.search(30);
+        Assertions.assertEquals(2, position);
+    }
+
+    @Test
+    void givenNumbers_WhenSearchLastKey_ShouldReturnPosition() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.display();
+        int position = linkedlist.search(70);
+        Assertions.assertEquals(3, position);
+    }
+
+    @Test
+    void givenNumbers_WhenSearchFirstKey_ShouldReturnPosition() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.display();
+        int position = linkedlist.search(56);
+        Assertions.assertEquals(1, position);
+    }
+
 }

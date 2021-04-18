@@ -29,8 +29,10 @@ public class LinkedList<K> {
     }
 
     public Node<K> addAtFirstPosition(Node<K> node) {
-        if(head == null && tail == null)
+        if(head == null && tail == null) {
             head = node;
+            tail = node;
+        }
         else {
             node.setNext(head);
             head = node;
@@ -43,13 +45,14 @@ public class LinkedList<K> {
     }
 
     public Node<K> addAtMiddlePosition(int position, Node<K> node) {
-        Node<K> temp = null;
-        if(head == null && tail == null)
+        if(head == null && tail == null) {
             head = node;
+            tail = node;
+        }
         else if(position == 1)
             return addAtFirstPosition(node);
         else {
-            temp = head;
+            Node<K> temp = head;
             for(int i = 1; i < position - 1; i++) {
                 temp = temp.getNext();
             }
@@ -83,4 +86,23 @@ public class LinkedList<K> {
         }
         return head;
     }
+
+    public int search(K key) {
+        int position = 1;
+        if(head == null && tail == null)
+            System.out.println("List is empty");
+        else {
+            Node<K> temp = head;
+            while(temp != null) {
+                if(key == temp.getValue()) {
+                    return position;
+                }
+                temp = temp.getNext();
+                position++;
+            }
+            System.out.println("Key not found");
+        }
+        return 0;
+    }
+
 }
