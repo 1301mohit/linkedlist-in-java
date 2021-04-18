@@ -118,4 +118,39 @@ public class LinkedList<K> {
         }
         return head;
     }
+
+    public int size() {
+        int count = 1;
+        if(head == null && tail == null)
+            return 0;
+        else {
+            Node<K> temp = head;
+            while(temp != null) {
+                temp = temp.getNext();
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public Node<K> removeFromMiddle(Node<K> node) {
+        if(head == null && tail == null)
+            System.out.println("List is empty");
+        int position = search(node.getValue());
+        if(position == 1)
+            return removeAtFirstPosition();
+        else if(position == size())
+            return removeAtLastPosition();
+        else {
+            Node<K> temp = head;
+            while(temp.getNext() != null && temp.getNext() != node) {
+                temp = temp.getNext();
+            }
+            if(temp.getNext() != null)
+                temp.setNext(temp.getNext().getNext());
+            else
+                return null;
+        }
+        return head;
+    }
 }

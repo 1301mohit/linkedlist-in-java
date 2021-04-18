@@ -166,5 +166,61 @@ public class LinkedListTest {
         node4.setNext(node3);
         Assertions.assertEquals(node1.getNext().getNext().getNext(), resultNode.getNext().getNext().getNext());
     }
-    
+
+    @Test
+    void givenNumber_RemoveFromLinkedList_ShouldReturnNode() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.create(node4);
+        linkedlist.display();
+        Node<Integer> resultNode = linkedlist.removeFromMiddle(node3);
+        linkedlist.display();
+        node1.setNext(node2);
+        node2.setNext(node4);
+        Assertions.assertEquals(node1.getNext().getNext(), resultNode.getNext().getNext());
+    }
+
+    @Test
+    void givenNumber_RemoveFromFirstPosition_ShouldReturnNode() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.create(node4);
+        linkedlist.display();
+        Node<Integer> resultNode = linkedlist.removeFromMiddle(node1);
+        linkedlist.display();
+        node2.setNext(node3);
+        node3.setNext(node4);
+        Assertions.assertEquals(node2.getNext().getNext(), resultNode.getNext().getNext());
+    }
+
+    @Test
+    void givenNumber_RemoveFromLastPosition_ShouldReturnNode() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.create(node4);
+        linkedlist.display();
+        Node<Integer> resultNode = linkedlist.removeFromMiddle(node4);
+        linkedlist.display();
+        node1.setNext(node2);
+        node2.setNext(node3);
+        Assertions.assertEquals(node1.getNext().getNext(), resultNode.getNext().getNext());
+    }
+
+    @Test
+    void givenNumber_RemoveAbsetNode_ShouldReturnNull() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node3);
+        linkedlist.create(node4);
+        linkedlist.display();
+        Node<Integer> resultNode = linkedlist.removeFromMiddle(node5);
+        linkedlist.display();
+        node1.setNext(node2);
+        node2.setNext(node3);
+        Assertions.assertEquals(null, resultNode);
+    }
+
 }
