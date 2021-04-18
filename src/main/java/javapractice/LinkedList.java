@@ -42,4 +42,20 @@ public class LinkedList<K> {
         return create(node);
     }
 
+    public Node<K> addAtMiddlePosition(int position, Node<K> node) {
+        Node<K> temp = null;
+        if(head == null && tail == null)
+            head = node;
+        else if(position == 1)
+            return addAtFirstPosition(node);
+        else {
+            temp = head;
+            for(int i = 1; i < position - 1; i++) {
+                temp = temp.getNext();
+            }
+            node.setNext(temp.getNext());
+            temp.setNext(node);
+        }
+        return head;
+    }
 }
