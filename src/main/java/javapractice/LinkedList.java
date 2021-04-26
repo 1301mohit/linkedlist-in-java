@@ -2,10 +2,10 @@ package javapractice;
 
 public class LinkedList<K extends Comparable> {
 
-    Node<K> head;
-    Node<K> tail;
+    INode<K> head;
+    INode<K> tail;
 
-    public Node<K> create(Node<K> node) {
+    public INode<K> create(INode<K> node) {
         if(head == null && tail == null) {
             this.head = node;
             this.tail = node;
@@ -20,7 +20,7 @@ public class LinkedList<K extends Comparable> {
     public void display() {
         if(head == null && tail == null)
             System.out.println("Linked list is empty");
-        Node<K> temp = head;
+        INode<K> temp = head;
         while(temp.getNext() != null) {
             System.out.print(temp.getValue()+" -> ");
             temp = temp.getNext();
@@ -28,7 +28,7 @@ public class LinkedList<K extends Comparable> {
         System.out.println(temp.getValue());
     }
 
-    public Node<K> addAtFirstPosition(Node<K> node) {
+    public INode<K> addAtFirstPosition(INode<K> node) {
         if(head == null && tail == null) {
             head = node;
             tail = node;
@@ -40,11 +40,11 @@ public class LinkedList<K extends Comparable> {
         return head;
     }
 
-    public Node<K> addAtLastPosition(Node<K> node) {
+    public INode<K> addAtLastPosition(INode<K> node) {
         return create(node);
     }
 
-    public Node<K> addAtMiddlePosition(int position, Node<K> node) {
+    public INode<K> addAtMiddlePosition(int position, INode<K> node) {
         if(head == null && tail == null) {
             head = node;
             tail = node;
@@ -52,7 +52,7 @@ public class LinkedList<K extends Comparable> {
         else if(position == 1)
             return addAtFirstPosition(node);
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             for(int i = 1; i < position - 1; i++) {
                 temp = temp.getNext();
             }
@@ -62,22 +62,22 @@ public class LinkedList<K extends Comparable> {
         return head;
     }
 
-    public Node<K> removeAtFirstPosition() {
+    public INode<K> removeAtFirstPosition() {
         if(head == null && tail == null)
             System.out.println("List is empty");
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             head = head.getNext();
             temp.setNext(null);
         }
         return head;
     }
 
-    public Node<K> removeAtLastPosition() {
+    public INode<K> removeAtLastPosition() {
         if(head == null && tail == null)
             System.out.println("List is empty");
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             while(temp.getNext().getNext() != null) {
                 temp = temp.getNext();
             }
@@ -92,7 +92,7 @@ public class LinkedList<K extends Comparable> {
         if(head == null && tail == null)
             System.out.println("List is empty");
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             while(temp != null) {
                 if(key == temp.getValue()) {
                     return position;
@@ -105,11 +105,11 @@ public class LinkedList<K extends Comparable> {
         return 0;
     }
 
-    public Node<K> insertAfterFixedNode(Node<K> node, Node<K> newNode) {
+    public INode<K> insertAfterFixedNode(INode<K> node, INode<K> newNode) {
         if(head == null && tail == null)
             System.out.println("List is empty");
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             while(temp != node) {
                 temp = temp.getNext();
             }
@@ -124,7 +124,7 @@ public class LinkedList<K extends Comparable> {
         if(head == null && tail == null)
             return 0;
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             while(temp != null) {
                 temp = temp.getNext();
                 count++;
@@ -133,7 +133,7 @@ public class LinkedList<K extends Comparable> {
         return count;
     }
 
-    public Node<K> removeFromMiddle(Node<K> node) {
+    public INode<K> removeFromMiddle(INode<K> node) {
         if(head == null && tail == null)
             System.out.println("List is empty");
         int position = search(node.getValue());
@@ -142,7 +142,7 @@ public class LinkedList<K extends Comparable> {
         else if(position == size())
             return removeAtLastPosition();
         else {
-            Node<K> temp = head;
+            INode<K> temp = head;
             while(temp.getNext() != null && temp.getNext() != node) {
                 temp = temp.getNext();
             }
@@ -154,10 +154,10 @@ public class LinkedList<K extends Comparable> {
         return head;
     }
 
-    public Node<K> sort(Node<K> node) {
-        Node<K> node1 = head;
-        Node<K> node2 = head.getNext();
-        Node<K> temp = node;
+    public INode<K> sort(INode<K> node) {
+        INode<K> node1 = head;
+        INode<K> node2 = head.getNext();
+        INode<K> temp = node;
         while(node1.getNext() != null) {
             while(node2 != null) {
                 if (node1.getValue().compareTo(node2.getValue()) == 1) {

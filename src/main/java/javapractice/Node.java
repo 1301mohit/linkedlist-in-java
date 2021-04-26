@@ -1,9 +1,9 @@
 package javapractice;
 
-public class Node<K> {
+public class Node<K> implements  INode<K> {
 
     private K value;
-    private Node<K> next;
+    private INode<K> next;
 
     public Node(K value) {
         this.value = value;
@@ -18,11 +18,11 @@ public class Node<K> {
         this.value = value;
     }
 
-    public Node<K> getNext() {
+    public INode<K> getNext() {
         return next;
     }
 
-    public void setNext(Node<K> next) {
+    public void setNext(INode<K> next) {
         this.next = next;
     }
 
