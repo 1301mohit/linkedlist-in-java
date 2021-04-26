@@ -1,6 +1,6 @@
 package javapractice;
 
-public class LinkedList<K> {
+public class LinkedList<K extends Comparable> {
 
     Node<K> head;
     Node<K> tail;
@@ -150,6 +150,25 @@ public class LinkedList<K> {
                 temp.setNext(temp.getNext().getNext());
             else
                 return null;
+        }
+        return head;
+    }
+
+    public Node<K> sort(Node<K> node) {
+        Node<K> node1 = head;
+        Node<K> node2 = head.getNext();
+        Node<K> temp = node;
+        while(node1.getNext() != null) {
+            while(node2 != null) {
+                if (node1.getValue().compareTo(node2.getValue()) == 1) {
+                    temp.setValue(node1.getValue());
+                    node1.setValue(node2.getValue());
+                    node2.setValue(temp.getValue());
+                }
+                node2 = node2.getNext();
+            }
+            node1 = node1.getNext();
+            node2 = node1.getNext();
         }
         return head;
     }

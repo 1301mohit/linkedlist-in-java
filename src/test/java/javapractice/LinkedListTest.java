@@ -215,7 +215,6 @@ public class LinkedListTest {
         linkedlist.create(node2);
         linkedlist.create(node3);
         linkedlist.create(node4);
-        linkedlist.display();
         Node<Integer> resultNode = linkedlist.removeFromMiddle(node5);
         linkedlist.display();
         node1.setNext(node2);
@@ -223,4 +222,17 @@ public class LinkedListTest {
         Assertions.assertEquals(null, resultNode);
     }
 
+    @Test
+    void givenNumbers_WhenCallSortMethod_ShouldReturnSortedData() {
+        linkedlist.create(node1);
+        linkedlist.create(node2);
+        linkedlist.create(node4);
+        linkedlist.create(node3);
+        Node<Integer> resultNode = linkedlist.sort(node5);
+        linkedlist.display();
+        node1.setNext(node2);
+        node2.setNext(node3);
+        node3.setNext(node4);
+        Assertions.assertEquals(node1.getNext().getNext().getNext().getNext(), resultNode.getNext().getNext().getNext().getNext());
+    }
 }
