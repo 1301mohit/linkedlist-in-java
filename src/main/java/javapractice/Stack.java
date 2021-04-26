@@ -26,4 +26,8 @@ public class Stack<K> {
         return temp;
     }
 
+    public INode peek() {
+        return top;
+    }
+
 }

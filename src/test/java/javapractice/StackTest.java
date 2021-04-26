@@ -47,5 +47,15 @@ public class StackTest {
         stack.display();
         assertEquals(node3, resultNode);
     }
+
+    @Test
+    void givenNumber_WhenPeekFromStack_ShouldReturnLastAddedNode() {
+        stack.push(node1);
+        stack.push(node2);
+        stack.push(node3);
+        INode resultNode = stack.peek();
+        stack.display();
+        assertEquals(node3, resultNode);
+    }
     
 }
