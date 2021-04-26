@@ -15,4 +15,15 @@ public class Stack<K> {
     }
 
 
+    public void display() {
+        linkedList.display();
+    }
+
+    public INode pop() {
+        INode temp = top;
+        top = top.getNext();
+        linkedList.removeAtFirstPosition();
+        return temp;
+    }
+
 }

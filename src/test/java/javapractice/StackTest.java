@@ -29,4 +29,23 @@ public class StackTest {
         assertEquals(node1, resultNode);
     }
 
+    @Test
+    void givenNumber_WhenAddInStack_ShouldReturnNode() {
+        stack.push(node1);
+        stack.push(node2);
+        INode resultNode = stack.push(node3);
+        stack.display();
+        assertEquals(node3, resultNode);
+    }
+
+    @Test
+    void givenNumber_WhenDeleteFromStack_ShouldReturnDeletedNode() {
+        stack.push(node1);
+        stack.push(node2);
+        stack.push(node3);
+        INode resultNode = stack.pop();
+        stack.display();
+        assertEquals(node3, resultNode);
+    }
+    
 }
