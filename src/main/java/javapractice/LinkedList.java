@@ -120,7 +120,7 @@ public class LinkedList<K extends Comparable> {
     }
 
     public int size() {
-        int count = 1;
+        int count = 0;
         if(head == null && tail == null)
             return 0;
         else {

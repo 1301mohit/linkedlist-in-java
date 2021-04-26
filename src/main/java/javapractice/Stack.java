@@ -30,4 +30,13 @@ public class Stack<K> {
         return top;
     }
 
+    public boolean isEmpty() {
+        if(top == null)
+            return true;
+        return false;
+    }
+
+    public int size() {
+        return linkedList.size();
+    }
 }

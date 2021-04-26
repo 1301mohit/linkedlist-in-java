@@ -57,5 +57,21 @@ public class StackTest {
         stack.display();
         assertEquals(node3, resultNode);
     }
-    
+
+    @Test
+    void givenNothing_WhenIsEmpty_ShouldReturnTrue() {
+        boolean result = stack.isEmpty();
+        assertEquals(true, result);
+    }
+
+    @Test
+    void givenNumbers_WhenCallSize_ShouldReturnSize() {
+        stack.push(node1);
+        stack.push(node2);
+        stack.push(node3);
+        stack.push(node4);
+        int size = stack.size();
+        assertEquals(4, size);
+    }
+
 }
